@@ -1,13 +1,28 @@
-# React
-react/node_modules
-react/src/aws-exports.js
-
-# Vue
-vue/node_modules
-vue/src/aws-exports.js
-
-# React Native
-react-native/node_modules
-react-native/aws-exports.js
-
 .DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+
+amplify/\#current-cloud-backend
+amplify/.config/local-*
+amplify/backend/amplify-meta.json
+aws-exports.js
+awsconfiguration.json

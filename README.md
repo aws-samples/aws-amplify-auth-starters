@@ -1,7 +1,31 @@
-## AWS Amplify Auth Starters
+# AWS Amplify Vue Auth Starter
 
-Starter projects for developers looking to build web & mobile applications that have Authentication & protected routing
+![](hero.png)
 
-## License Summary
+## Project setup
+```
+yarn install
+```
 
-This sample code is made available under a modified MIT license. See the LICENSE file.
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
