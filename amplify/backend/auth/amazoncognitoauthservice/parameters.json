@@ -1,0 +1,71 @@
+{
+    "identityPoolName": "amplifyauthstarterreactuserpool",
+    "allowUnauthenticatedIdentities": false,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "amazoncognitoauthservice_lambda_log_policy",
+    "openIdLambdaRoleName": "amazoncognitoauthservice_openid_lambda_role",
+    "openIdRolePolicy": "amazoncognitoauthservice_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "amazoncognitoauthservice_openid_lambda_iam_policy",
+    "openIdLogPolicy": "amazoncognitoauthservice_openid_lambda_log_policy",
+    "userPoolName": "amplifyauthstarterreactidentitypool",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "amazoncognitoauthservice_sns-role",
+    "roleExternalId": "amazoncognitoauthservice_role_external_id",
+    "policyName": "amazoncognitoauthservice-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "amazoncognitoauthservice_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "amazoncognitoauthservice_totp_lambda_role",
+    "mfaLambdaLogPolicy": "amazoncognitoauthservice_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "amazoncognitoauthservice_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "amazoncognitoauthservice_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "amazoncognitoauthservice_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "amazoncognitoauthservice_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "amazoncognitoauthservice_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "useDefault": "manual",
+    "authSelections": "identityPoolAndUserPool",
+    "resourceName": "amazoncognitoauthservice",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    }
+}
