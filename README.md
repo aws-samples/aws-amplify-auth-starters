@@ -5,13 +5,13 @@ A collection of sample applications that make it easy to quickly get up and runn
 ## This project covers the following frameworks:
 
 ### React
-![](react/hero.png)
+![](react_hero.png)
 
 ### React Native
-![](react-native/hero.jpg)
+![](react_native_hero.jpg)
 
 ### Vue
-![](vue/hero.png)
+![](vue_hero.png)
 
 - [ ] Angular (Coming soon)
 
