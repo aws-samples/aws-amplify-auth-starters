@@ -30,7 +30,7 @@ aws-exports.js
 awsconfiguration.json
 
 ## amplify optional
-team-provider-info.json
+amplify/team-provider-info.json
 
 amplify/\#current-cloud-backend
 amplify/.config/local-*
