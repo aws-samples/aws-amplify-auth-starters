@@ -1,13 +1,33 @@
-# React
-react/node_modules
-react/src/aws-exports.js
-
-# Vue
-vue/node_modules
-vue/src/aws-exports.js
-
-# React Native
-react-native/node_modules
-react-native/aws-exports.js
-
 .DS_Store
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# amplify
+amplify/\#current-cloud-backend
+amplify/.config/local-*
+amplify/backend/amplify-meta.json
+aws-exports.js
+awsconfiguration.json
+
+## amplify optional
+team-provider-info.json
