@@ -1,0 +1,11 @@
+import {AppRegistry, YellowBox} from 'react-native';
+import App from './src/App';
+import {name as appName} from './app.json';
+
+YellowBox.ignoreWarnings(['Remote'])
+
+import Amplify, { Auth } from 'aws-amplify'
+import config from './aws-exports'
+Amplify.configure(config)
+
+AppRegistry.registerComponent(appName, () => App);
