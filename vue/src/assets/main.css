@@ -1,0 +1,31 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: aliceblue;
+}
+
+* {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+input {
+  height: 34px;
+  width: 248px;
+  font-size: 18px;
+  text-align: left;
+  padding: 7px;
+  border: none;
+  outline: none;
+  margin: 5px;
+  border-bottom: 2px solid #2c3e50;
+  background-color: aliceblue;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px aliceblue inset;
+}
