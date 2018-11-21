@@ -1,7 +1,3 @@
-## AWS Amplify Auth Starters
+# AWS Amplify React Native Auth Starter
 
-Starter projects for developers looking to build web & mobile applications that have Authentication & protected routing
-
-## License Summary
-
-This sample code is made available under a modified MIT license. See the LICENSE file.
+![](hero.jpg)
