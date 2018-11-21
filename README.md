@@ -1,6 +1,27 @@
-## AWS Amplify Auth Starters
+# AWS Amplify Authentication Starters
 
-Starter projects for developers looking to build web & mobile applications that have Authentication & protected routing
+A collection of sample applications that make it easy to quickly get up and running with Authentication in AWS Amplify.
+
+## This project covers the following frameworks:
+
+### React
+![](react/hero.png)
+
+### React Native
+![](react-native/hero.jpg)
+
+### Vue
+![](vue/hero.png)
+
+- [ ] Angular (Coming soon)
+
+## Features implemented in these examples:
+- User sign up
+- User sign in
+- Multi factor authentication (MFA)
+- Routing / Navigation Auth flows
+- Protected routes
+- Redirects for unauthorized users
 
 ## License Summary
 
