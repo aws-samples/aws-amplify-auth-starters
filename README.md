@@ -4,13 +4,13 @@ A collection of sample applications that make it easy to quickly get up and runn
 
 ## This project covers the following frameworks:
 
-### React
+### [React](https://github.com/aws-samples/aws-amplify-auth-starters/tree/react)
 ![](react_hero.png)
 
-### React Native
+### [React Native](https://github.com/aws-samples/aws-amplify-auth-starters/tree/react-native)
 ![](react_native_hero.jpg)
 
-### Vue
+### [Vue](https://github.com/aws-samples/aws-amplify-auth-starters/tree/vue)
 ![](vue_hero.png)
 
 - [ ] Angular (Coming soon)
