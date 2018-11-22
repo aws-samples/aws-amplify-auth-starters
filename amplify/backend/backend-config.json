@@ -1,8 +1,0 @@
-{
-	"auth": {
-		"cognitoauthservice": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
-		}
-	}
-}
