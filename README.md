@@ -34,21 +34,13 @@ npm start
 ## Setting up AWS services    
 If you do not have your AWS services already created, follow these steps. If you already have your services set up, just configure your aws-exports.js file.    
 
-1. from the root of the project, create awsmobile project    
+1. From the root of the project, initialize the Amplify project    
 
 ```sh
 amplify init
 ```
 
-2. add user sign-in / authentication (Amazon Cognito)    
-
-```sh
-amplify add auth
-
-## choose default configuration or create your own custom configuration
-```
-
-3. push to create new services in your account
+2. Create the resources in your account
 
 ```sh
 amplify push
