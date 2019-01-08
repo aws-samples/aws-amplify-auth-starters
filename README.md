@@ -22,20 +22,30 @@ npm install -g @aws-amplify/cli@multienv
 
 2. clone the project    
 
-```
+```sh
 git clone <repourl>
 ```
 
-3. install dependencies using npm or yarn    
+3. Check out the React Native branch
 
+```sh
+git checkout react-native
 ```
+
+4. install dependencies using npm or yarn    
+
+```sh
 yarn || npm i
 ```
 
-3. Start project    
+5. Start project    
 
-```
-npm start
+```sh
+react-native run-ios
+
+# or
+
+react-native run-android
 ```
 
 ## Setting up AWS services    
