@@ -22,19 +22,25 @@ npm install -g @aws-amplify/cli@multienv
 
 2. clone the project    
 
-```
+```sh
 git clone <repourl>
 ```
 
-3. install dependencies using npm or yarn    
+3. Check out the React branch
 
-```
-yarn || npm i
+```sh
+git checkout react
 ```
 
-3. Start project    
+4. install dependencies using npm or yarn    
 
+```sh
+npm install
 ```
+
+5. Start project    
+
+```sh
 npm start
 ```
 
