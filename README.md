@@ -13,13 +13,20 @@
 
 ## Getting started    
 
-1. clone the project    
+
+1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
+
+```sh
+npm install -g @aws-amplify/cli@multienv
+```
+
+2. clone the project    
 
 ```
 git clone <repourl>
 ```
 
-2. install dependencies using npm or yarn    
+3. install dependencies using npm or yarn    
 
 ```
 yarn || npm i
