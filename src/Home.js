@@ -3,31 +3,20 @@ import { withRouter, Link } from 'react-router-dom'
 import { Auth } from 'aws-amplify'
 import QRCode from 'qrcode.react'
 import { css } from 'glamor'
+import UserContext from './UserContext'
 
 class Home extends React.Component {
   state = {
-    username: '',
-    user: {},
     qrCode: '',
     challengeAnswer: '',
     showPreferred: false
   }
-  componentDidMount() {
-    Auth.currentAuthenticatedUser().then(user => {
-      console.log('user: ', user)
-      this.setState({ user })
-    })
-    Auth.currentUserInfo()
-      .then(data => {
-        this.setState({
-          username: data.username
-        })
-      })
-      .catch(err => console.log('error: ', err))
-  }
+  static contextType = UserContext
+
   addTTOP = () => {
-    Auth.setupTOTP(this.state.user).then((code) => {
-      const authCode = "otpauth://totp/AWSCognito:"+ this.state.user.username + "?secret=" + code + "&issuer=AWSCognito";
+    const { user } = this.context
+    Auth.setupTOTP(user).then((code) => {
+      const authCode = "otpauth://totp/AWSCognito:"+ user.username + "?secret=" + code + "&issuer=AWSCognito";
       this.setState({
         qrCode: authCode,
         showPreferred: true
@@ -35,24 +24,26 @@ class Home extends React.Component {
     });
   }
   setPreferredMFA = (authType) => {
-    Auth.verifyTotpToken(this.state.user, this.state.challengeAnswer).then(() => {
-      Auth.setPreferredMFA(this.state.user, authType)
+    const { user } = this.context
+    Auth.verifyTotpToken(user, this.state.challengeAnswer).then(() => {
+      Auth.setPreferredMFA(user, authType)
         .then(data => console.log('data from verify...: ', data))
         .catch(err => console.log('error: ', err))
     });
   }
   render() {
+    const username = this.context.user ? this.context.user.username : ''
     return (
       <div>
-        <h1>Welcome {this.state.username}</h1>
+        <h1>Welcome {username}</h1>
         <Link to='/route1' label='route1'>Route 1</Link><br /><br /><br />
         <div {...css(styles.buttonContainer)}>
-          <button
+          <div
+            {...css(styles.yellowButton)}
             onClick={this.addTTOP}
-            {...css(styles.button)}
           >
-            <p>Update TOTP</p>
-          </button>
+            <p {...css(styles.buttonText)}>Update TOTP</p>
+          </div>
           {
             (this.state.qrCode !== '') && (
               <div>
@@ -96,19 +87,25 @@ class Route1 extends React.Component {
       <div>
         <h1>Route 1</h1>
         <Link to='/' label='route1'>Back</Link><br /><br /><br />
-        <p onClick={() => {
-          Auth.signOut()
-            .then(() => {
-              this.props.history.push('/auth')
-            })
-            .catch(() => console.log('error signing out...'))
-        }}>Sign Out</p>
+        <div
+          {...css(styles.yellowButton)}
+          onClick={() => {
+            Auth.signOut()
+              .then(() => {
+                this.props.history.push('/auth')
+              })
+              .catch(() => console.log('error signing out...'))
+          }}
+        >
+          <p {...css(styles.buttonText)}>Sign Out</p>
+        </div>
       </div>
     )
   }
 }
 
 const styles = {
+
   buttonContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -128,7 +125,24 @@ const styles = {
     height: 40,
     width: 225,
     border: '1px solid #ddd'
-  }
+  },
+  yellowButton: {
+    padding: '10px 60px',
+    backgroundColor: '#ffb102',
+    marginTop: 10,
+    width: 300,
+    margin: '0 auto',
+    marginBottom: 10,
+    cursor: 'pointer',
+    borderRadius: '30px',
+    ':hover': {
+      backgroundColor: '#ffbb22'
+    }
+  },
+  buttonText: {
+    margin: 0,
+    color: 'white'
+  },
 }
 
 Home = withRouter(Home)

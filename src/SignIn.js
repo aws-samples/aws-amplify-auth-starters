@@ -1,6 +1,7 @@
 import React from 'react'
 import { css } from 'glamor'
 import { Auth } from 'aws-amplify'
+import UserContext from './UserContext'
 
 import { withRouter } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ class SignIn extends React.Component {
     user: {},
     authCode: ''
   }
+  static contextType = UserContext
   onChange = (key, value) => {
     this.setState({
       [key]: value
@@ -19,12 +21,13 @@ class SignIn extends React.Component {
   }
   signIn = () => {
     const { history } = this.props
+    const { updateCurrentUser } = this.context
     Auth.signIn(this.state.username, this.state.password)
       .then(user => {
-        console.log('user: ', user)
         if (!user.signInUserSession) {
           this.setState({ user, showConfirmation: true })
         } else {
+          updateCurrentUser(user)
           history.push('/')
         }        
       })

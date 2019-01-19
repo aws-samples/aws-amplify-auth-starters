@@ -6,7 +6,8 @@ import {
   Redirect,
   BrowserRouter as Router
 } from 'react-router-dom'
-import { Auth } from 'aws-amplify'
+import UserContext from './UserContext'
+import Header from './Header'
 
 import Authenticator from './Authenticator'
 import {
@@ -19,30 +20,20 @@ class PrivateRoute extends React.Component {
     loaded: false,
     isAuthenticated: false
   }
+  static contextType = UserContext
   componentDidMount() {
-    this.authenticate()
     this.unlisten = this.props.history.listen(() => {
-      Auth.currentAuthenticatedUser()
-        .then(user => console.log('user: ', user))
-        .catch(() => {
-          if (this.state.isAuthenticated) this.setState({ isAuthenticated: false })
-        })
-    });
+      this.context.updateCurrentUser()
+    })
   }
   componentWillUnmount() {
     this.unlisten()
   }
-  authenticate() {
-    Auth.currentAuthenticatedUser()
-      .then(() => {
-        this.setState({ loaded: true, isAuthenticated: true })
-      })
-      .catch(() => this.props.history.push('/auth'))
-  }
   render() {
     const { component: Component, ...rest } = this.props
-    const { loaded , isAuthenticated} = this.state
-    if (!loaded) return null
+    const isAuthenticated = this.context.user && this.context.user.username ? true : false
+    const isLoaded = this.context.isLoaded
+    if (!isLoaded) return null
     return (
       <Route
         {...rest}
@@ -66,11 +57,14 @@ PrivateRoute = withRouter(PrivateRoute)
 
 const Routes = () => (
   <Router>
-    <Switch>
-      <Route path='/auth' component={Authenticator} />
-      <PrivateRoute path='/route1' component={Route1} />
-      <PrivateRoute path='/' component={Home} />
-    </Switch>
+    <div>
+      <Header />
+      <Switch>
+        <Route path='/auth' component={Authenticator} />
+        <PrivateRoute path='/route1' component={Route1} />
+        <PrivateRoute path='/' component={Home} />
+      </Switch>
+    </div>
   </Router>
 )
 
