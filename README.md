@@ -23,7 +23,7 @@ Choose __react__ branch.
 
 ### Manual setup
 
-#### Cloning the front-end
+#### Initial setup
 
 1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
 
