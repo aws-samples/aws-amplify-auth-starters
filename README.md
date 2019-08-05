@@ -19,6 +19,8 @@
 
 Choose __react__ branch.
 
+---
+
 ### Manual setup
 
 #### Cloning the front-end
