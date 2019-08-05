@@ -1,8 +1,9 @@
 {
 	"auth": {
-		"cognitoauthservice": {
+		"awsamplifyauthstarteca5ac8e2": {
 			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
 		}
 	}
 }
