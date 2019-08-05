@@ -9,7 +9,7 @@
 - Real world auth flow using React Router
 - Protected routes
 - Redirects for unauthorized users
-- Time-baed one time password (TOTP)    
+- Time-based one time password (TOTP)    
 
 ## Getting started    
 
