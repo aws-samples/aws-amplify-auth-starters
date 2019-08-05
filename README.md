@@ -12,16 +12,28 @@
 
 ## Getting started    
 
+### 1 click deploy
+
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/aws-samples/aws-amplify-auth-starters)  
+
+Choose __vue__ branch.
+
+---
+
+### Manual setup
+
+#### Initial setup
+
 1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
 
 ```sh
-npm install -g @aws-amplify/cli@multienv
+npm install -g @aws-amplify/cli
 ```
 
 2. clone the project    
 
 ```sh
-git clone <repourl>
+git clone https://github.com/aws-samples/aws-amplify-auth-starters.git
 ```
 
 3. Check out the vue branch
@@ -42,7 +54,8 @@ npm install
 npm run serve
 ```
 
-## Setting up AWS services    
+#### Setting up back end AWS services
+    
 If you do not have your AWS services already created, follow these steps. If you already have your services set up, just configure your aws-exports.js file.    
 
 1. From the root of the project, initialize the Amplify project    
