@@ -13,15 +13,15 @@
 
 ## Getting started    
 
-## 1 click deploy
+### 1 click deploy
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/aws-samples/aws-amplify-auth-starters)
 
 Choose __react__ branch.
 
-## Manual setup
+### Manual setup
 
-### Cloning the front-end
+#### Cloning the front-end
 
 1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
 
@@ -53,7 +53,7 @@ npm install
 npm start
 ```
 
-### Setting up back end AWS services
+#### Setting up back end AWS services
 
 If you do not have your AWS services already created, follow these steps. If you already have your services set up, just configure your aws-exports.js file.    
 
@@ -69,7 +69,7 @@ amplify init
 amplify push
 ```
 
-## Enabling MFA
+#### Enabling MFA
 
 1. Visit the [Amazon Cognito User Pool Dashboard](https://console.aws.amazon.com/cognito/users) & click on your user pool.
 
