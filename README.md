@@ -13,7 +13,7 @@
 
 ## Getting started    
 
-### 1 click deploy
+### One click deploy
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/aws-samples/aws-amplify-auth-starters)
 
