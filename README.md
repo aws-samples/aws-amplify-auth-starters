@@ -17,13 +17,13 @@
 1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
 
 ```sh
-npm install -g @aws-amplify/cli@multienv
+npm install -g @aws-amplify/cli
 ```
 
 2. clone the project    
 
 ```sh
-git clone <repourl>
+git clone https://github.com/aws-samples/aws-amplify-auth-starters.git
 ```
 
 3. Check out the React Native branch
