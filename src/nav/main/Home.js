@@ -19,8 +19,8 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Hello from Home</Text>
-        <Text onPress={() => this.props.navigation.navigate('Route2')}>Go to Route 2</Text>
-        <Text onPress={this.signOut}>Sign Out</Text>
+        <Text onPress={() => this.props.navigation.navigate('Route2')} style={styles.link}>Go to Route 2</Text>
+        <Text onPress={this.signOut} style={styles.link}>Sign Out</Text>
       </View>
     )
   }
@@ -32,6 +32,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
+  },
+  link: {
+    color: 'blue',
+    marginVertical: 5
   }
 })
 
