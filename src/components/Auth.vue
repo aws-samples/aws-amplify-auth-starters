@@ -9,8 +9,10 @@
     <div v-if="formType === 'forgotPassword'">
       <forgot-password v-bind="{toggleForm}" />
     </div>
-    <p v class='toggleButton' v-on:click="toggleForm(formType === 'signIn' ? 'signUp' : 'signIn')">{{ formTitle }}</p>
-    <p v-if="formType == 'signIn'" class='toggleButton' v-on:click="toggleForm('forgotPassword')">Forgot Password?</p>
+    <div class="link-container">
+      <p v class='toggleButton' v-on:click="toggleForm(formType === 'signIn' ? 'signUp' : 'signIn')">{{ formTitle }}</p>
+      <p v-if="formType == 'signIn'" class='toggleButton' v-on:click="toggleForm('forgotPassword')">Forgot Password?</p>
+    </div>
   </div>
 </template>
 
@@ -43,12 +45,16 @@ export default {
 </script>
 
 <style scoped>
+.link-container {
+  margin-top: 30;
+}
 .auth {
   display: flex;
   flex-direction: column;
 }
 .toggleButton {
   cursor: pointer;
+  margin-bottom: 0;
 }
 .toggleButton:hover {
   opacity: .7;
