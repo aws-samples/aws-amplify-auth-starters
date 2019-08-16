@@ -3,13 +3,12 @@ import { css } from 'glamor'
 import { Auth } from 'aws-amplify'
 import UserContext from './UserContext'
 
-class SignIn extends React.Component {
+class ForgotPassword extends React.Component {
   state = {
     username: '',
+    confirmationCode: '',
     password: '',
-    showConfirmation: false,
-    user: {},
-    authCode: ''
+    showConfirmation: false
   }
   static contextType = UserContext
   onChange = (key, value) => {
@@ -18,30 +17,21 @@ class SignIn extends React.Component {
       [key]: value
     })
   }
-  signIn = () => {
-    const { history } = this.props
-    const { updateCurrentUser } = this.context
-    Auth.signIn(this.state.username, this.state.password)
-      .then(user => {
-        if (!user.signInUserSession) {
-          this.setState({ user, showConfirmation: true })
-        } else {
-          updateCurrentUser(user)
-          history.push('/profile')
-        }        
+  forgotPassword = () => {
+    Auth.forgotPassword(this.state.username)
+      .then(() => {
+        this.setState({ showConfirmation: true })
       })
-      .catch(err => {
-        console.log('error signing in...: ', err)
-        this.props.updateErrorMessage(err.message)
-      })
+      .catch(err => console.log('error: ', err))
   }
-  confirmSignIn = () => {
-    const { history } = this.props
-    Auth.confirmSignIn(this.state.user, this.state.authCode, this.state.user.challengeName)
-      .then(user => {
-        history.push('/')
+  forgotPasswordSubmit = () => {
+    const { username, password, confirmationCode } = this.state
+    Auth.forgotPasswordSubmit(username, confirmationCode, password)
+      .then(() => {
+        alert('successfully changed password!')
+        this.props.switchState('showSignIn')
       })
-      .catch(err => console.log('error confirming signing in...: ', err))
+      .catch(err => console.log('error resetting password:', err))
   }
   render() {
     return (
@@ -49,21 +39,15 @@ class SignIn extends React.Component {
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
-              <h2 {...css(styles.signInHeader)}>Sign In</h2>
+              <h2 {...css(styles.signInHeader)}>Forgot Password?</h2>
               <input
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
                 placeholder='username'
                 
               />
-              <input
-                type='password'
-                onChange={evt => this.onChange('password', evt.target.value)}
-                {...css(styles.input)}
-                placeholder='password'
-              />
-              <div {...css(styles.button)} onClick={this.signIn}>
-                <p {...css(styles.buttonText)}>Sign In</p>
+              <div {...css(styles.button)} onClick={this.forgotPassword}>
+                <p {...css(styles.buttonText)}>Get Authentication Code</p>
               </div>
             </div>
           )
@@ -72,12 +56,18 @@ class SignIn extends React.Component {
           this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
               <input
-                onChange={evt => this.onChange('authCode', evt.target.value)}
+                onChange={evt => this.onChange('confirmationCode', evt.target.value)}
                 {...css(styles.input)}
                 placeholder='Confirmation Code'
               />
-              <div {...css(styles.button)} onClick={this.confirmSignIn.bind(this)}>
-                <p {...css(styles.buttonText)}>Confirm Sign In</p>
+              <input
+                onChange={evt => this.onChange('password', evt.target.value)}
+                {...css(styles.input)}
+                type='password'
+                placeholder='New Password'
+              />
+              <div {...css(styles.button)} onClick={this.forgotPasswordSubmit}>
+                <p {...css(styles.buttonText)}>Reset Password</p>
               </div>
             </div>
           )
@@ -135,4 +125,4 @@ const styles = {
   }
 }
 
-export default SignIn
+export default ForgotPassword

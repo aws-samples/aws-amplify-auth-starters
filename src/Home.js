@@ -1,9 +1,10 @@
 import React from 'react'
-import { withRouter, Link } from 'react-router-dom'
 import { Auth } from 'aws-amplify'
 import QRCode from 'qrcode.react'
 import { css } from 'glamor'
 import UserContext from './UserContext'
+import Container from './Container'
+import Button from './Button'
 
 class Home extends React.Component {
   state = {
@@ -32,80 +33,59 @@ class Home extends React.Component {
     });
   }
   render() {
-    const username = this.context.user ? this.context.user.username : ''
+    const isAuthenticated = this.context.user && this.context.user.username ? true : false
     return (
-      <div>
-        <h1>Welcome {username}</h1>
-        <Link to='/route1' label='route1'>Route 1</Link><br /><br /><br />
-        <div {...css(styles.buttonContainer)}>
-          <div
-            {...css(styles.yellowButton)}
-            onClick={this.addTTOP}
-          >
-            <p {...css(styles.buttonText)}>Update TOTP</p>
-          </div>
-          {
-            (this.state.qrCode !== '') && (
-              <div>
-                <br />
-                <QRCode value={this.state.qrCode} />
-              </div>
-            )
-          }
-          {
-            this.state.showPreferred && (
+      <Container>
+        <h1>Welcome</h1>
+        {
+          isAuthenticated && (
+            <>
+              <Button
+                title="Update TOTP"
+                onClick={this.addTTOP}
+              />
               <div {...css(styles.buttonContainer)}>
-                <button
-                  onClick={() => this.setPreferredMFA('TOTP')}
-                  {...css(styles.button)}
-                >
-                  <p>Prefer TOTP</p>
-                </button>
-                <button
-                  onClick={() => this.setPreferredMFA('SMS')}
-                  {...css(styles.button)}
-                >
-                  <p>Prefer SMS</p>
-                </button>
-                <input
-                  placeholder='TOTP Code'
-                  onChange={e => this.setState({ challengeAnswer: e.target.value })}
-                  {...css(styles.input)}
-                />
+                {
+                  (this.state.qrCode !== '') && (
+                    <div>
+                      <br />
+                      <QRCode value={this.state.qrCode} />
+                    </div>
+                  )
+                }
+                {
+                  this.state.showPreferred && (
+                    <div {...css(styles.buttonContainer)}>
+                      <button
+                        onClick={() => this.setPreferredMFA('TOTP')}
+                        {...css(styles.button)}
+                      >
+                        <p>Prefer TOTP</p>
+                      </button>
+                      <button
+                        onClick={() => this.setPreferredMFA('SMS')}
+                        {...css(styles.button)}
+                      >
+                        <p>Prefer SMS</p>
+                      </button>
+                      <input
+                        placeholder='TOTP Code'
+                        onChange={e => this.setState({ challengeAnswer: e.target.value })}
+                        {...css(styles.input)}
+                      />
+                    </div>
+                  )
+                }
               </div>
-            )
-          }
-        </div>
-      </div>
-    )
-  }
-}
-
-class Route1 extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Route 1</h1>
-        <Link to='/' label='route1'>Back</Link><br /><br /><br />
-        <div
-          {...css(styles.yellowButton)}
-          onClick={() => {
-            Auth.signOut()
-              .then(() => {
-                this.props.history.push('/auth')
-              })
-              .catch(() => console.log('error signing out...'))
-          }}
-        >
-          <p {...css(styles.buttonText)}>Sign Out</p>
-        </div>
-      </div>
+            </>
+          )
+        }
+      </Container>
     )
   }
 }
 
 const styles = {
-
   buttonContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -125,30 +105,8 @@ const styles = {
     height: 40,
     width: 225,
     border: '1px solid #ddd'
-  },
-  yellowButton: {
-    padding: '10px 60px',
-    backgroundColor: '#ffb102',
-    marginTop: 10,
-    width: 300,
-    margin: '0 auto',
-    marginBottom: 10,
-    cursor: 'pointer',
-    borderRadius: '30px',
-    ':hover': {
-      backgroundColor: '#ffbb22'
-    }
-  },
-  buttonText: {
-    margin: 0,
-    color: 'white'
-  },
+  }
 }
 
-Home = withRouter(Home)
-Route1 = withRouter(Route1)
 
-export {
-  Home,
-  Route1
-}
+export default Home

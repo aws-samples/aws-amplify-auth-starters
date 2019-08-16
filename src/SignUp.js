@@ -1,6 +1,5 @@
 import React from 'react'
 import { css } from 'glamor'
-import { withRouter } from 'react-router-dom'
 
 import { Auth } from 'aws-amplify'
 
@@ -20,6 +19,7 @@ class SignUp extends React.Component {
   }
   signUp = () => {
     const { username, password, email, phone_number } = this.state
+    
     Auth.signUp({
       username,
       password,
@@ -29,7 +29,10 @@ class SignUp extends React.Component {
       }
     })
     .then(() => this.setState({ showConfirmation: true }))
-    .catch(err => console.log('error signing up: ', err))
+    .catch(err => {
+      console.log('error signing up: ', err)
+      this.props.updateErrorMessage(err.message)
+    })
   }
   confirmSignUp = () => {
     Auth.confirmSignUp(this.state.username, this.state.authCode)
@@ -139,4 +142,4 @@ const styles = {
   },
 }
 
-export default withRouter(SignUp)
+export default SignUp

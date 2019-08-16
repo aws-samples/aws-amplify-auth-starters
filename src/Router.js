@@ -10,10 +10,9 @@ import UserContext from './UserContext'
 import Header from './Header'
 
 import Authenticator from './Authenticator'
-import {
-  Home,
-  Route1
-} from './Home'
+import Home from './Home'
+import Private from './Private.js'
+import Profile from './Profile'
 
 class PrivateRoute extends React.Component {
   state = {
@@ -34,6 +33,7 @@ class PrivateRoute extends React.Component {
     const isAuthenticated = this.context.user && this.context.user.username ? true : false
     const isLoaded = this.context.isLoaded
     if (!isLoaded) return null
+
     return (
       <Route
         {...rest}
@@ -53,6 +53,12 @@ class PrivateRoute extends React.Component {
   }
 }
 
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>No match for <code>{location.pathname}</code></h3>
+  </div>
+)
+
 PrivateRoute = withRouter(PrivateRoute)
 
 const Routes = () => (
@@ -60,9 +66,11 @@ const Routes = () => (
     <div>
       <Header />
       <Switch>
-        <Route path='/auth' component={Authenticator} />
-        <PrivateRoute path='/route1' component={Route1} />
-        <PrivateRoute path='/' component={Home} />
+        <Route path='/auth' exact component={Authenticator} />
+        <Route path='/' exact component={Home} />
+        <PrivateRoute path='/private' exact component={Private} />
+        <PrivateRoute path='/profile'  component={Profile} />
+        <Route component={NoMatch} />
       </Switch>
     </div>
   </Router>
