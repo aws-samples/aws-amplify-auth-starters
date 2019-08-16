@@ -1,18 +1,23 @@
 <template>
   <div class='auth'>
-    <div v-if="formType == 'signIn'">
+    <div v-if="formType === 'signIn'">
       <sign-in />
     </div>
-    <div v-if="formType == 'signUp'">
+    <div v-if="formType === 'signUp'">
       <sign-up v-bind="{toggleForm}" />
     </div>
-    <p class='toggleButton' v-on:click='toggleForm'>{{ formTitle }}</p>
+    <div v-if="formType === 'forgotPassword'">
+      <forgot-password v-bind="{toggleForm}" />
+    </div>
+    <p v class='toggleButton' v-on:click="toggleForm(formType === 'signIn' ? 'signUp' : 'signIn')">{{ formTitle }}</p>
+    <p v-if="formType == 'signIn'" class='toggleButton' v-on:click="toggleForm('forgotPassword')">Forgot Password?</p>
   </div>
 </template>
 
 <script>
 import SignIn from './SignIn.vue'
 import SignUp from './SignUp.vue'
+import ForgotPassword from './ForgotPassword.vue'
 
 export default {
   name: 'auth',
@@ -24,17 +29,14 @@ export default {
   },
   components: {
     SignIn,
-    SignUp
+    SignUp,
+    ForgotPassword
   },
   methods: {
-    toggleForm() {
-      if (this.formType === 'signIn') {
-        this.formTitle = 'Already have an account?'
-        this.formType = 'signUp'
-      } else {
-        this.formTitle = 'Need an account?'
-        this.formType = 'signIn'
-      }
+    toggleForm(formType) {
+      this.formType = formType
+      if (formType === 'signIn') this.formTitle = 'Need an account?'
+      if (formType === 'signUp') this.formTitle = 'Already have an account?'
     }
   }
 }

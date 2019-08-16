@@ -61,7 +61,7 @@ export default {
     async confirmSignUp() {
       try {
         await this.$Amplify.Auth.confirmSignUp(this.form.username, this.authCode)
-        this.toggleForm()
+        this.toggleForm('signIn')
         console.log('user successfully signed up!')
       } catch (err) {
         console.log('error signing up...', err)
