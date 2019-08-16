@@ -1,3 +1,9 @@
+### This is the React Starter
+
+To view the Vue starter, click [here](https://github.com/aws-samples/aws-amplify-auth-starters/tree/vue).
+
+To view the React Native starter, click [here](https://github.com/aws-samples/aws-amplify-auth-starters/tree/react-native).
+
 # AWS Amplify React Authentication Starter
 
 ![](hero.png)
