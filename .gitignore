@@ -54,3 +54,13 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+# Amplify
+amplify/\#current-cloud-backend
+amplify/.config/local-*
+amplify/backend/amplify-meta.json
+aws-exports.js
+awsconfiguration.json
+
+## amplify optional
+amplify/team-provider-info.json

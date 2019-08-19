@@ -32,7 +32,7 @@ class SignIn extends Component {
     const { username, authCode } = this.state
     try {
       await Auth.confirmSignUp(username, authCode)
-      this.props.toggleAuthType()
+      this.props.toggleAuthType('showSignIn')
     } catch (err) {
       console.log('error signing up...', err)
     }

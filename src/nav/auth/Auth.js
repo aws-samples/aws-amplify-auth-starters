@@ -5,21 +5,22 @@ import {
 
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import ForgotPassword from './ForgotPassword'
 
 const { width } = Dimensions.get('window')
 
 class Auth extends React.Component {
   state = {
-    showSignUp: false
+    showSignUp: false,
+    formType: 'showSignIn'
   }
-  toggleAuthType = () => {
-    let showSignUp
-    this.state.showSignUp ? 
-      showSignUp = false : showSignUp = true
-    this.setState({ showSignUp })
+  toggleAuthType = formType => {
+    this.setState({ formType })
   }
   render() {
-    const { showSignUp } = this.state
+    const showSignIn = this.state.formType === 'showSignIn'
+    const showSignUp = this.state.formType === 'showSignUp'
+    const showForgotPassword = this.state.formType === 'showForgotPassword'
     return (
       <View style={styles.container}>
         <Image
@@ -29,17 +30,25 @@ class Auth extends React.Component {
         />
         <Text style={styles.title}>AWS Amplify</Text>
         <Text style={styles.subtitle}>React Native Auth Starter</Text>
-        {
-          showSignUp ? <SignUp toggleAuthType={this.toggleAuthType} /> : <SignIn navigation={this.props.navigation} />
-        }
+        { showSignIn && (
+          <SignIn
+            navigation={this.props.navigation}
+            toggleAuthType={this.toggleAuthType}
+          />
+        ) }
+        { showSignUp && <SignUp toggleAuthType={this.toggleAuthType} /> }
+        { showForgotPassword && <ForgotPassword toggleAuthType={this.toggleAuthType} /> }
         <View style={{ position: 'absolute', bottom: 40 }}>
           {
-            showSignUp ? (
+            showSignUp || showForgotPassword ? (
               <Text style={styles.bottomMessage}>Already signed up? <Text
-              style={styles.bottomMessageHighlight}  onPress={this.toggleAuthType}>&nbsp;&nbsp;Sign In</Text></Text>
+              style={styles.bottomMessageHighlight}
+              onPress={() => this.toggleAuthType('showSignIn')}>&nbsp;&nbsp;Sign In</Text></Text>
             ) : (
               <Text style={styles.bottomMessage}>Need an account?
-                <Text onPress={this.toggleAuthType} style={styles.bottomMessageHighlight}>&nbsp;&nbsp;Sign Up</Text>
+                <Text
+                  onPress={() => this.toggleAuthType('showSignUp')}
+                  style={styles.bottomMessageHighlight}>&nbsp;&nbsp;Sign Up</Text>
               </Text>
             )
           }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
 
 import { Auth } from 'aws-amplify'
 
@@ -23,6 +23,9 @@ class SignIn extends Component {
       console.log('error signing up...', err)
     }
   }
+  showForgotPassword = () => {
+    this.props.toggleAuthType('showForgotPassword')
+  }
   render() {
     return (
       <View>
@@ -41,9 +44,22 @@ class SignIn extends Component {
           title='Sign In'
           onPress={this.signIn}
         />
+        <View style={styles.buttonContainer}>
+          <TouchableHighlight onPress={this.showForgotPassword}>
+            <Text>Forget your password?</Text>
+          </TouchableHighlight>
+        </View>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    paddingTop: 15,
+    justifyContent: 'center',
+    flexDirection: 'row'
+  }
+})
 
 export default SignIn
