@@ -19,16 +19,6 @@ To view the React Native starter, click [here](https://github.com/aws-samples/aw
 
 ## Getting started    
 
-### One click deploy
-
-[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/aws-samples/aws-amplify-auth-starters)
-
-Choose __react__ branch.
-
----
-
-### Manual setup
-
 #### Initial setup
 
 1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
