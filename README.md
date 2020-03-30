@@ -13,8 +13,6 @@ A collection of sample applications that make it easy to quickly get up and runn
 ### [Vue](https://github.com/aws-samples/aws-amplify-auth-starters/tree/vue)
 ![](vue_hero.png)
 
-- [] Angular (Coming soon)
-
 ## Features implemented in these examples:
 - User sign up
 - User sign in
