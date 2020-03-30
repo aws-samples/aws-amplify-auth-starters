@@ -38,7 +38,15 @@ git checkout react-native
 yarn || npm i
 ```
 
-5. Start project    
+5. For iOS, install the pods:
+
+```sh
+cd ios
+pod install
+cd ..
+```
+
+6. Start project    
 
 ```sh
 react-native run-ios
