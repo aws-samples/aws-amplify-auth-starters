@@ -120,7 +120,7 @@ const styles = {
     width: 400,
     display: 'flex',
     flexDirection: 'column',
-    boxShadow: "0px 0px 5px rgba(0, 0, 0, .2)",
+    boxShadow: "0px 0px 2px rgba(0, 0, 0, .2)",
     borderRadius: 20
   }
 }
