@@ -1,11 +1,12 @@
 {
-    "projectName": "amplifyauthreact",
+    "projectName": "RNAmplifyAuth",
+    "version": "3.0",
     "frontend": "javascript",
     "javascript": {
-        "framework": "react",
+        "framework": "react-native",
         "config": {
-            "SourceDir": "src",
-            "DistributionDir": "build",
+            "SourceDir": "/",
+            "DistributionDir": "/",
             "BuildCommand": "npm run-script build",
             "StartCommand": "npm run-script start"
         }

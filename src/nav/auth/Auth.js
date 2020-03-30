@@ -32,8 +32,8 @@ class Auth extends React.Component {
         <Text style={styles.subtitle}>React Native Auth Starter</Text>
         { showSignIn && (
           <SignIn
-            navigation={this.props.navigation}
             toggleAuthType={this.toggleAuthType}
+            updateAuth={() => this.props.updateAuth('mainNav')}
           />
         ) }
         { showSignUp && <SignUp toggleAuthType={this.toggleAuthType} /> }

@@ -18,10 +18,10 @@ class SignIn extends Component {
   }
   signUp = async () => {
     const {
-      username, password, email, phone_number
+      username, password, email
     } = this.state
     try {
-      await Auth.signUp({ username, password, attributes: { email, phone_number }})
+      await Auth.signUp({ username, password, attributes: { email }})
       console.log('successful sign up..')
       this.setState({ stage: 1 })
     } catch (err) {
@@ -59,11 +59,13 @@ class SignIn extends Component {
                 type='email'
                 onChangeText={this.onChangeText}
               />
+              {/* 
+              If you would like to enable phone number as an attribute, uncomment this field
               <Input
                 placeholder='Phone Number'
                 type='phone_number'
                 onChangeText={this.onChangeText}
-              />
+              /> */}
               <ActionButton
                 title='Sign Up'
                 onPress={this.signUp}

@@ -1,21 +1,9 @@
 import React from 'react'
 import { View, StyleSheet, Animated } from 'react-native'
 
-import { withNavigation } from 'react-navigation'
-
-import { Auth } from 'aws-amplify'
-
 class SignIn extends React.Component {
   animatedValue = new Animated.Value(.75)
-  async componentDidMount() {
-    this.animate()
-    try {
-      const user = await Auth.currentAuthenticatedUser()
-      this.props.navigation.navigate('MainNav')
-    } catch (err) {
-      this.props.navigation.navigate('Auth')
-    }
-  }
+  
   animate = () => {
     Animated.timing(
       this.animatedValue,
@@ -49,4 +37,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default withNavigation(SignIn)
+export default SignIn

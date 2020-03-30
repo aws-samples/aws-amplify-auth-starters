@@ -18,9 +18,9 @@ class SignIn extends Component {
     try {
       await Auth.signIn(username, password)
       console.log('successfully signed in')
-      this.props.navigation.navigate('MainNav')
+      this.props.updateAuth('MainNav')
     } catch (err) {
-      console.log('error signing up...', err)
+      console.log('error signing in...', err)
     }
   }
   showForgotPassword = () => {

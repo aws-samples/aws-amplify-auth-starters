@@ -10,12 +10,14 @@ class Home extends React.Component {
   signOut = async () => {
     try {
       await Auth.signOut()
-      this.props.navigation.navigate('Auth')
+      console.log('signed out')
+      this.props.updateAuth('auth')
     } catch (err) {
       console.log('error signing out...', err)
     }
   }
   render() {
+    console.log('props: ', this.props)
     return (
       <View style={styles.container}>
         <Text>Hello from Home</Text>
