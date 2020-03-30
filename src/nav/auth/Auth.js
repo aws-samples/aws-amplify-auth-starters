@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  View, Text, StyleSheet, Image, Dimensions
+  View, Text, StyleSheet, Image, Dimensions, KeyboardAvoidingView, Platform
 } from 'react-native'
 
 import SignIn from './SignIn'
@@ -22,38 +22,41 @@ class Auth extends React.Component {
     const showSignUp = this.state.formType === 'showSignUp'
     const showForgotPassword = this.state.formType === 'showForgotPassword'
     return (
-      <View style={styles.container}>
-        <Image
-          style={styles.logo}
-          resizeMode='contain'
-          source={require("../../assets/amplify.png")}
-        />
-        <Text style={styles.title}>AWS Amplify</Text>
-        <Text style={styles.subtitle}>React Native Auth Starter</Text>
-        { showSignIn && (
-          <SignIn
-            toggleAuthType={this.toggleAuthType}
-            updateAuth={() => this.props.updateAuth('mainNav')}
+      <KeyboardAvoidingView
+      style={styles.container}
+        behavior={Platform.Os == "ios" ? "padding" : "height"}
+      >
+          <Image
+            style={styles.logo}
+            resizeMode='contain'
+            source={require("../../assets/amplify.png")}
           />
-        ) }
-        { showSignUp && <SignUp toggleAuthType={this.toggleAuthType} /> }
-        { showForgotPassword && <ForgotPassword toggleAuthType={this.toggleAuthType} /> }
-        <View style={{ position: 'absolute', bottom: 40 }}>
-          {
-            showSignUp || showForgotPassword ? (
-              <Text style={styles.bottomMessage}>Already signed up? <Text
-              style={styles.bottomMessageHighlight}
-              onPress={() => this.toggleAuthType('showSignIn')}>&nbsp;&nbsp;Sign In</Text></Text>
-            ) : (
-              <Text style={styles.bottomMessage}>Need an account?
-                <Text
-                  onPress={() => this.toggleAuthType('showSignUp')}
-                  style={styles.bottomMessageHighlight}>&nbsp;&nbsp;Sign Up</Text>
-              </Text>
-            )
-          }
-        </View>
-      </View>
+          <Text style={styles.title}>AWS Amplify</Text>
+          <Text style={styles.subtitle}>React Native Auth Starter</Text>
+          { showSignIn && (
+            <SignIn
+              toggleAuthType={this.toggleAuthType}
+              updateAuth={() => this.props.updateAuth('mainNav')}
+            />
+          ) }
+          { showSignUp && <SignUp toggleAuthType={this.toggleAuthType} /> }
+          { showForgotPassword && <ForgotPassword toggleAuthType={this.toggleAuthType} /> }
+          <View style={{ position: 'absolute', bottom: 40 }}>
+            {
+              showSignUp || showForgotPassword ? (
+                <Text style={styles.bottomMessage}>Already signed up? <Text
+                style={styles.bottomMessageHighlight}
+                onPress={() => this.toggleAuthType('showSignIn')}>&nbsp;&nbsp;Sign In</Text></Text>
+              ) : (
+                <Text style={styles.bottomMessage}>Need an account?
+                  <Text
+                    onPress={() => this.toggleAuthType('showSignUp')}
+                    style={styles.bottomMessageHighlight}>&nbsp;&nbsp;Sign Up</Text>
+                </Text>
+              )
+            }
+          </View>
+      </KeyboardAvoidingView>
     )
   }
 }
