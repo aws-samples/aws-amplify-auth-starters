@@ -6,6 +6,7 @@ import {
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import ForgotPassword from './ForgotPassword'
+import amplifyLogo from "../../../assets/amplify.png"
 
 const { width } = Dimensions.get('window')
 
@@ -29,7 +30,7 @@ class Auth extends React.Component {
           <Image
             style={styles.logo}
             resizeMode='contain'
-            source={require("../../assets/amplify.png")}
+            source={amplifyLogo}
           />
           <Text style={styles.title}>AWS Amplify</Text>
           <Text style={styles.subtitle}>React Native Auth Starter</Text>
@@ -69,7 +70,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40
   },  
   logo: {
-    height: width / 2.5
+    height: width / 2.5,
+    width:  width / 1.75
   },
   title: {
     fontSize: 26,

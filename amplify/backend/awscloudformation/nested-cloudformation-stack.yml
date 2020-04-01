@@ -71,7 +71,7 @@
 		"authrnamplifyauthcac7a1a9": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-rnamplifyauth-dev-102859-deployment/amplify-cfn-templates/auth/rnamplifyauthcac7a1a9-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-rnamplifyauth-dev-134901-deployment/amplify-cfn-templates/auth/rnamplifyauthcac7a1a9-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "rnamplifyauthcac7a1a9_identitypool_cac7a1a9",
 					"allowUnauthenticatedIdentities": false,

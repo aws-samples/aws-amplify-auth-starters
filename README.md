@@ -1,8 +1,8 @@
-# AWS Amplify React Native Auth Starter
+# AWS Amplify Expo Auth Starter
 
 ![](hero.jpg)
 
-# AWS Amplify React Authentication Starter
+# AWS Amplify Expo Authentication Starter
 
 ![](hero.png)
 
@@ -11,10 +11,11 @@
 - User sign in
 - 2 factor authentication
 - Real world auth flow using React Navigation
+- Deploy to iOS, Android, and web (using Expo Web)
 
 ## Getting started  
 
-1. Make sure you are on a new version of the AWS Amplify CLI to be sure you have multiple environment support.
+1. Make sure you are on a new version of the AWS Amplify CLI
 
 ```sh
 npm install -g @aws-amplify/cli
@@ -26,34 +27,26 @@ npm install -g @aws-amplify/cli
 git clone https://github.com/aws-samples/aws-amplify-auth-starters.git
 ```
 
-3. Check out the React Native branch
+3. Check out the Expo branch
 
 ```sh
-git checkout react-native
+git checkout expo
 ```
 
 4. install dependencies using npm or yarn    
 
 ```sh
-yarn || npm i
-```
-
-5. For iOS, install the pods:
-
-```sh
-cd ios
-pod install
-cd ..
-```
-
-6. Start project    
-
-```sh
-react-native run-ios
+yarn 
 
 # or
 
-react-native run-android
+npm i
+```
+
+5. Start project    
+
+```sh
+expo start
 ```
 
 ## Setting up AWS services    

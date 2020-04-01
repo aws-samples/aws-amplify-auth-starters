@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Animated } from 'react-native'
+import amplifyLogo from "../../assets/amplify.png"
 
 class SignIn extends React.Component {
   animatedValue = new Animated.Value(.75)
@@ -19,7 +20,7 @@ class SignIn extends React.Component {
         <Animated.Image
           style={[styles.logo, { transform: [{ scale: this.animatedValue }]}]}
           resizeMode='contain'
-          source={require("../assets/amplify.png")}
+          source={amplifyLogo}
         />
       </View>
     )
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   logo: {
-    height: 50
+    height: 50,
+    width: 60
   }
 })
 
