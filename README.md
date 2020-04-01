@@ -1,8 +1,6 @@
-# AWS Amplify React Native Auth Starter
-
 ![](hero.jpg)
 
-# AWS Amplify React Authentication Starter
+# AWS Amplify React Native Authentication Starter
 
 ![](hero.png)
 
