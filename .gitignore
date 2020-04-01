@@ -13,3 +13,7 @@ react-native/aws-exports.js
 .DS_Store
 
 amplify
+
+node_modules
+.expo/*
+aws-exports.js
