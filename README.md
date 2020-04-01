@@ -10,6 +10,9 @@ A collection of sample applications that make it easy to quickly get up and runn
 ### [React Native](https://github.com/aws-samples/aws-amplify-auth-starters/tree/react-native)
 ![](react_native_hero.jpg)
 
+### [Expo](https://github.com/aws-samples/aws-amplify-auth-starters/tree/expo)
+![](react_native_hero.jpg)
+
 ### [Vue](https://github.com/aws-samples/aws-amplify-auth-starters/tree/vue)
 ![](vue_hero.png)
 
