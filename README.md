@@ -1,8 +1,8 @@
-# AWS Amplify Expo Auth Starter
-
 ![](hero.jpg)
 
 # AWS Amplify Expo Authentication Starter
+
+__Deploy to iOS, Android, and web (using Expo Web)__
 
 ![](hero.png)
 
@@ -11,7 +11,6 @@
 - User sign in
 - 2 factor authentication
 - Real world auth flow using React Navigation
-- Deploy to iOS, Android, and web (using Expo Web)
 
 ## Getting started  
 
