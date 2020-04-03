@@ -21,12 +21,12 @@ class SignUp extends React.Component {
     const { username, password, email } = this.state
     
     Auth.signUp({
-      username,
-      password,
-      attributes: {
-        email,
-        // phone_number
-      }
+        username,
+        password,
+        attributes: {
+            email,
+            'custom:favorite_flavor': 'Cookie Dough'  // custom attribute, not standard
+        }
     })
     .then(() => this.setState({ showConfirmation: true }))
     .catch(err => {
@@ -36,7 +36,7 @@ class SignUp extends React.Component {
   }
   confirmSignUp = () => {
     Auth.confirmSignUp(this.state.username, this.state.authCode)
-    .then(() => this.props.history.push('/'))
+    .then(() => this.props.switchState('showSignIn'))
     .catch(err => console.log('error confirming signing up: ', err))
   }
   render() {
