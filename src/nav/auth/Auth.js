@@ -24,7 +24,7 @@ class Auth extends React.Component {
     return (
       <KeyboardAvoidingView
       style={styles.container}
-        behavior={Platform.Os == "ios" ? "padding" : "height"}
+        behavior={Platform.OS === 'ios' ? 'height' : 'padding'}
       >
           <Image
             style={styles.logo}
