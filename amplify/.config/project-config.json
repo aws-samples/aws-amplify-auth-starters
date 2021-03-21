@@ -1,17 +1,17 @@
 {
-    "projectName": "vueauth",
-    "version": "2.0",
-    "frontend": "javascript",
-    "javascript": {
-        "framework": "vue",
-        "config": {
-            "SourceDir": "src",
-            "DistributionDir": "dist",
-            "BuildCommand": "npm run-script build",
-            "StartCommand": "npm run-script serve"
-        }
-    },
-    "providers": [
-        "awscloudformation"
-    ]
+  "projectName": "vueauth",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "vue",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "dist",
+      "BuildCommand": "npm run-script build",
+      "StartCommand": "npm run-script serve"
+    }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
 }

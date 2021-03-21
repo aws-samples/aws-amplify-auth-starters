@@ -1,6 +1,4 @@
 {
-    "identityPoolName": "vueauth2d2c6134_identitypool_2d2c6134",
-    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "vueaut2d2c6134",
     "userPoolName": "vueauth2d2c6134_userpool_2d2c6134",
     "autoVerifiedAttributes": [
@@ -12,16 +10,21 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
+    "emailVerificationSubject": "admintools.io - Email Verification",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
+    "defaultPasswordPolicy": true,
+    "passwordPolicyMinLength": "8",
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
     "requiredAttributes": [
         "email"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "30",
     "userpoolClientWriteAttributes": [
         "email"
     ],
@@ -31,7 +34,7 @@
     "userpoolClientLambdaRole": "vueaut2d2c6134_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "resourceName": "vueauth2d2c6134",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -44,6 +47,21 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "dependsOn": []
+    "useDefault": "manual",
+    "dependsOn": [],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": true,
+    "hostedUIDomainName": "staff",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://admintools.io/\"],\"LogoutURLs\":[\"https://admintools.io/\"]}",
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "authProviders": []
 }
