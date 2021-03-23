@@ -1,9 +1,9 @@
 {
-	"auth": {
-		"vueauth2d2c6134": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	}
+  "auth": {
+    "vueauth2d2c6134": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  }
 }
