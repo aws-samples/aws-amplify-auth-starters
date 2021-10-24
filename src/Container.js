@@ -11,7 +11,6 @@ function Container({ children }) {
 
 const styles = {
   container: {
-    width : 900,
     margin: '0 auto',
     '& h1': {
       textAlign: 'left'

@@ -10,30 +10,29 @@ class Header extends React.Component {
     const isLoaded = this.context.isLoaded
     return (
       <div {...css(styles.container)}>
-        {
-          isLoaded ? isAuthenticated ? (
-            <div {...css(styles.navContainer)}>
-              <Link to='/private' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>プロフィール</p>
-              </Link>
+        <img
+          style={styles.amplifyLogo}
+          src={require('./assets/amplifywhite.png')}
+        />
+        <div {...css(styles.navContainer)}>
+          <Link to='/' {...css(styles.link)}>
+            <p {...css(styles.navItem)}>ホーム</p>
+          </Link>
+          <Link to='/private' {...css(styles.link)}>
+            <p {...css(styles.navItem)}>Private</p>
+          </Link>
+          {
+            isLoaded ? isAuthenticated ? (
               <Link to='/profile' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>掲示板</p>
+                <p {...css(styles.navItem)}>Profile</p>
               </Link>
-              <Link to='/profile' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>メール</p>
-              </Link>
-              <Link to='/' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>ホーム</p>
-              </Link>
-            </div>
-          ) : (
-            <div {...css(styles.navContainer)}>
+            ) : (
               <Link to='/auth' {...css(styles.link)}>
                 <p {...css(styles.navItem)}>ログイン</p>
               </Link>
-            </div>
-          ) : null
-        }
+            ) : null
+          }
+        </div>
       </div>
     )
   }
@@ -54,7 +53,7 @@ const styles = {
   navContainer: {
     display: 'flex',
     flex: 1,
-    paddingLeft: 10,
+    paddingLeft: 50,
     marginTop: 6
   },
   link: {
@@ -70,7 +69,7 @@ const styles = {
     }
   },
   container: {
-    height: '50px',
+    height: '80px',
     alignItems: 'center',
     width: '100%',
     backgroundColor: '#FF9900',
