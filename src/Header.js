@@ -10,10 +10,6 @@ class Header extends React.Component {
     const isLoaded = this.context.isLoaded
     return (
       <div {...css(styles.container)}>
-        <img
-          style={styles.amplifyLogo}
-          src={require('./assets/amplifywhite.png')}
-        />
         <div {...css(styles.navContainer)}>
           <Link to='/' {...css(styles.link)}>
             <p {...css(styles.navItem)}>Home</p>
@@ -53,7 +49,7 @@ const styles = {
   navContainer: {
     display: 'flex',
     flex: 1,
-    paddingLeft: 50,
+    paddingLeft: 10,
     marginTop: 6
   },
   link: {
@@ -69,7 +65,7 @@ const styles = {
     }
   },
   container: {
-    height: '80px',
+    height: '50px',
     alignItems: 'center',
     width: '100%',
     backgroundColor: '#FF9900',
