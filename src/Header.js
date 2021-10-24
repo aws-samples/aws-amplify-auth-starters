@@ -16,7 +16,7 @@ class Header extends React.Component {
         />
         <div {...css(styles.navContainer)}>
           <Link to='/' {...css(styles.link)}>
-            <p {...css(styles.navItem)}>Home</p>
+            <p {...css(styles.navItem)}>ホーム</p>
           </Link>
           <Link to='/private' {...css(styles.link)}>
             <p {...css(styles.navItem)}>Private</p>
@@ -28,7 +28,7 @@ class Header extends React.Component {
               </Link>
             ) : (
               <Link to='/auth' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>Sign In</p>
+                <p {...css(styles.navItem)}>ログイン</p>
               </Link>
             ) : null
           }

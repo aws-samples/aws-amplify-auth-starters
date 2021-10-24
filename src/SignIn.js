@@ -32,7 +32,7 @@ class SignIn extends React.Component {
       })
       .catch(err => {
         console.log('error signing in...: ', err)
-        this.props.updateErrorMessage(err.message)
+        this.props.updateErrorMessage('メールアドレス、電話番号又はパスワードが違います')
       })
   }
   confirmSignIn = () => {
@@ -52,7 +52,7 @@ class SignIn extends React.Component {
               <input
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='ユーザー名'
+                placeholder='メールアドレス又は電話番号'
                 
               />
               <input
