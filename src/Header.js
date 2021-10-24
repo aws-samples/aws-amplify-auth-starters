@@ -11,12 +11,6 @@ class Header extends React.Component {
     return (
       <div {...css(styles.container)}>
         <div {...css(styles.navContainer)}>
-          <Link to='/' {...css(styles.link)}>
-            <p {...css(styles.navItem)}>Home</p>
-          </Link>
-          <Link to='/private' {...css(styles.link)}>
-            <p {...css(styles.navItem)}>Private</p>
-          </Link>
           {
             isLoaded ? isAuthenticated ? (
               <Link to='/profile' {...css(styles.link)}>
@@ -28,6 +22,12 @@ class Header extends React.Component {
               </Link>
             ) : null
           }
+          <Link to='/' {...css(styles.link)}>
+            <p {...css(styles.navItem)}>Home</p>
+          </Link>
+          <Link to='/private' {...css(styles.link)}>
+            <p {...css(styles.navItem)}>Private</p>
+          </Link>
         </div>
       </div>
     )
