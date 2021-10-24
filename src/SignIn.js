@@ -49,21 +49,20 @@ class SignIn extends React.Component {
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
-              <h2 {...css(styles.signInHeader)}>Sign In</h2>
               <input
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='username'
+                placeholder='ユーザー名'
                 
               />
               <input
                 type='password'
                 onChange={evt => this.onChange('password', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='password'
+                placeholder='パスワード'
               />
               <div {...css(styles.button)} onClick={this.signIn}>
-                <p {...css(styles.buttonText)}>Sign In</p>
+                <p {...css(styles.buttonText)}>ログイン</p>
               </div>
             </div>
           )
@@ -71,13 +70,14 @@ class SignIn extends React.Component {
         {
           this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
+              <h2 {...css(styles.signInHeader)}>Sign In</h2>
               <input
                 onChange={evt => this.onChange('authCode', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='Confirmation Code'
+                placeholder='認証コード'
               />
               <div {...css(styles.button)} onClick={this.confirmSignIn.bind(this)}>
-                <p {...css(styles.buttonText)}>Confirm Sign In</p>
+                <p {...css(styles.buttonText)}>ログイン</p>
               </div>
             </div>
           )
