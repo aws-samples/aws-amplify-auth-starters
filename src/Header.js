@@ -13,21 +13,24 @@ class Header extends React.Component {
         <div {...css(styles.navContainer)}>
           {
             isLoaded ? isAuthenticated ? (
-              <Link to='/profile' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>Profile</p>
-              </Link>
+              <>
+                <Link to='/profile' {...css(styles.link)}>
+                  <p {...css(styles.navItem)}>Profile</p>
+                </Link>
+                <Link to='/' {...css(styles.link)}>
+                  <p {...css(styles.navItem)}>ホーム</p>
+                </Link>
+                <Link to='/private' {...css(styles.link)}>
+                  <p {...css(styles.navItem)}>Private</p>
+                </Link>
+              </>
             ) : (
               <Link to='/auth' {...css(styles.link)}>
-                <p {...css(styles.navItem)}>Sign In</p>
+                <p {...css(styles.navItem)}>ログイン</p>
               </Link>
             ) : null
           }
-          <Link to='/' {...css(styles.link)}>
-            <p {...css(styles.navItem)}>Home</p>
-          </Link>
-          <Link to='/private' {...css(styles.link)}>
-            <p {...css(styles.navItem)}>Private</p>
-          </Link>
+
         </div>
       </div>
     )
