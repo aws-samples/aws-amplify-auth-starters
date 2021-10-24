@@ -15,13 +15,13 @@ class Header extends React.Component {
             isLoaded ? isAuthenticated ? (
               <>
                 <Link to='/profile' {...css(styles.link)}>
-                  <p {...css(styles.navItem)}>Profile</p>
+                  <p {...css(styles.navItem)}>検索</p>
                 </Link>
                 <Link to='/' {...css(styles.link)}>
-                  <p {...css(styles.navItem)}>ホーム</p>
+                  <p {...css(styles.navItem)}>掲示板</p>
                 </Link>
                 <Link to='/private' {...css(styles.link)}>
-                  <p {...css(styles.navItem)}>Private</p>
+                  <p {...css(styles.navItem)}>メール</p>
                 </Link>
               </>
             ) : (
