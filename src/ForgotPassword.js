@@ -39,15 +39,14 @@ class ForgotPassword extends React.Component {
         {
           !this.state.showConfirmation && (
             <div {...css(styles.formContainer)}>
-              <h2 {...css(styles.signInHeader)}>Forgot Password?</h2>
               <input
                 onChange={evt => this.onChange('username', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='username'
+                placeholder='メールアドレス又は電話番号'
                 
               />
               <div {...css(styles.button)} onClick={this.forgotPassword}>
-                <p {...css(styles.buttonText)}>Get Authentication Code</p>
+                <p {...css(styles.buttonText)}>認証コードを送る</p>
               </div>
             </div>
           )
@@ -58,16 +57,16 @@ class ForgotPassword extends React.Component {
               <input
                 onChange={evt => this.onChange('confirmationCode', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='Confirmation Code'
+                placeholder='認証コード'
               />
               <input
                 onChange={evt => this.onChange('password', evt.target.value)}
                 {...css(styles.input)}
                 type='password'
-                placeholder='New Password'
+                placeholder='新しいパスワード'
               />
               <div {...css(styles.button)} onClick={this.forgotPasswordSubmit}>
-                <p {...css(styles.buttonText)}>Reset Password</p>
+                <p {...css(styles.buttonText)}>パスワードの再設定</p>
               </div>
             </div>
           )

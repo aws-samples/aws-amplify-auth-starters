@@ -43,7 +43,7 @@ class Authenticator extends React.Component {
                 <p
                   {...css(styles.toggle)}
                   onClick={() => this.switchState('showSignIn')}
-                >Already have an account? Sign In</p>
+                >すでにアカウントをお持ちの方はこちら</p>
               </div>
             )
           }
