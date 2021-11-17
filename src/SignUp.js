@@ -46,21 +46,21 @@ class SignUp extends React.Component {
         {
           !showConfirmation && (
             <div {...css(styles.formContainer)}>
-              <h2 {...css(styles.signUpHeader)}>Sign Up</h2>
+              <h2 {...css(styles.signUpHeader)}>新規登録</h2>
               <input
                 {...css(styles.input)}
-                placeholder='Username'
+                placeholder='メールアドレス又は電話番号'
                 onChange={evt => this.onChange('username', evt.target.value)}
               />
               <input
                 {...css(styles.input)}
-                placeholder='Password'
+                placeholder='パスワード'
                 type='password'
                 onChange={evt => this.onChange('password', evt.target.value)}
               />
               <input
                 {...css(styles.input)}
-                placeholder='Email'
+                placeholder='メールアドレス'
                 onChange={evt => this.onChange('email', evt.target.value)}
               />
               {/* 
@@ -71,7 +71,7 @@ class SignUp extends React.Component {
                 onChange={evt => this.onChange('phone_number', evt.target.value)}
               /> */}
               <div {...css(styles.button)} onClick={this.signUp}>
-                <p {...css(styles.buttonText)}>Sign Up</p>
+                <p {...css(styles.buttonText)}>新規登録</p>
               </div>
             </div>
           )
@@ -79,13 +79,14 @@ class SignUp extends React.Component {
         {
           showConfirmation && (
             <div {...css(styles.formContainer)}>
+              <h2 {...css(styles.signUpHeader)}>認証コード入力</h2>
               <input
                 onChange={evt => this.onChange('authCode', evt.target.value)}
                 {...css(styles.input)}
-                placeholder='Confirmation Code'
+                placeholder='認証コード'
               />
               <div {...css(styles.button)} onClick={this.confirmSignUp}>
-                <p {...css(styles.buttonText)}>Confirm Sign Up</p>
+                <p {...css(styles.buttonText)}>登録する</p>
               </div>
             </div>
           )
